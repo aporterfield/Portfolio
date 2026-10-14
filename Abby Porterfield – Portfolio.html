@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abby Porterfield – Product & web designer</title>
+<style>
+:root{
+  --bg:#fcfcfd;--ink:#14161c;--muted:#6b7080;--pill:#f1f1f5;--pill-ink:#3a3d4a;
+  --btn:#0b1020;--btn-ink:#fff;--card:#fff;--line:#e6e7ee;
+  --wash:radial-gradient(60% 50% at 80% 0%,#e9d9ff 0%,#dde6ff 40%,transparent 75%);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1117;--ink:#f2f3f7;--muted:#9aa0b2;--pill:#1c1f2a;--pill-ink:#c9cddb;
+  --btn:#f2f3f7;--btn-ink:#0b1020;--card:#171a23;--line:#262a37;
+  --wash:radial-gradient(60% 50% at 80% 0%,#3a2a66 0%,#1f2a52 40%,transparent 75%);}}
+:root[data-theme="dark"]{--bg:#0f1117;--ink:#f2f3f7;--muted:#9aa0b2;--pill:#1c1f2a;--pill-ink:#c9cddb;--btn:#f2f3f7;--btn-ink:#0b1020;--card:#171a23;--line:#262a37;--wash:radial-gradient(60% 50% at 80% 0%,#3a2a66 0%,#1f2a52 40%,transparent 75%)}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wash{position:absolute;inset:0 0 auto 0;height:520px;background:var(--wash);pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:32px 24px 80px}
+header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.avatar{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,#c9a27a,#6b4a35);display:grid;place-items:center;color:#fff;font-weight:600;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover}
+nav{position:absolute;left:50%;transform:translateX(-50%);top:0;display:flex;gap:4px;padding:6px;border-radius:14px;background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--line);backdrop-filter:blur(10px)}
+nav a{padding:8px 14px;border-radius:9px;color:var(--muted);text-decoration:none;font-size:15px}
+nav a[aria-current]{background:var(--card);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+nav a:hover{color:var(--ink)}
+h1{font-size:clamp(36px,5vw,48px);letter-spacing:-.025em;font-weight:500;margin:28px 0 12px;line-height:1.1}
+.intro{color:var(--muted);font-size:18px;max-width:400px;margin:0 0 24px}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:13px 18px;border-radius:12px;font-size:16px;text-decoration:none;font-weight:500;background:var(--pill);color:var(--pill-ink)}
+.btn.primary{background:var(--btn);color:var(--btn-ink)}
+a:focus-visible{outline:2px solid #6c5ce7;outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px 24px;margin-top:64px}
+.thumb{display:block;position:relative;aspect-ratio:1.28/1;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.cap{display:flex;justify-content:space-between;gap:12px;margin-top:12px;color:var(--muted);font-size:16px}
+.cap b{font-weight:400}
+/* placeholder art, replaced by exported Figma frames via the img field */
+.g1{background:linear-gradient(160deg,#c2d6f2,#e4d7f4 60%,#f7cfe0)}
+.g2{background:linear-gradient(160deg,#d9e4f7,#f4c9d6 55%,#f6dcb8)}
+.g3{background:linear-gradient(160deg,#f6c9a8,#f3d1e6 50%,#e1d6f6)}
+.g4{background:linear-gradient(160deg,#f7c4a0,#f6d2dc 50%,#cfe0f7)}
+.mock{position:absolute;left:8%;right:8%;top:12%;bottom:-6%;background:var(--card);border-radius:14px;box-shadow:0 20px 50px rgba(20,30,60,.18);padding:6% 6%;display:flex;flex-direction:column;gap:10px}
+.mock .bar{height:34%;border-radius:10px;background:#16213a}
+.mock .row{height:10px;border-radius:5px;background:var(--line)}
+.mock .row.s{width:60%}
+.mock .title{font-size:13px;font-weight:600}
+.mock .sub{font-size:11px;color:var(--muted);margin-top:-6px}
+@media (max-width:760px){
+  nav{position:static;transform:none;order:3;width:100%;overflow-x:auto}
+  header{flex-wrap:wrap}.grid{grid-template-columns:1fr;gap:36px}
+  .wrap{padding:20px 16px 56px}
+}
+</style>
+</head>
+<body>
+<div class="wash"></div>
+<div class="wrap">
+  <header>
+    <div class="avatar" aria-hidden="true"><!-- <img src="headshot.jpg" alt=""> -->AP</div>
+    <nav aria-label="Main">
+      <a href="#projects" aria-current="page">Projects</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+    </nav>
+  </header>
+
+  <h1>Abby Porterfield</h1>
+  <p class="intro">Product &amp; web designer focused on clean systems, smooth interactions, and meaningful details.</p>
+  <div class="cta">
+    <a class="btn primary" href="#projects">My latest work</a>
+    <a class="btn" href="mailto:hello@example.com">Let’s chat</a>
+  </div>
+
+  <main id="projects" class="grid" aria-label="Projects"></main>
+</div>
+
+<script>
+/* Add one object per Figma project. Export each frame as PNG and set `img`
+   (e.g. img:"aviera.png") to replace the placeholder art. */
+const PROJECTS = [
+  {title:"Making financial data easier to understand", name:"Aviera", year:2026, href:"#", img:"", art:"g1", mock:"Current balance"},
+  {title:"Creating a music discovery app", name:"Lumix", year:2025, href:"#", img:"", art:"g2", mock:"Now playing"},
+  {title:"Showcasing my values and influences", name:"About me", year:2025, href:"#", img:"", art:"g3", mock:"The values behind my work"},
+  {title:"Simplifying team spending approvals", name:"Approvals", year:2025, href:"#", img:"", art:"g4", mock:"Approval workflows"}
+];
+const grid = document.getElementById("projects");
+grid.innerHTML = PROJECTS.map(p => `
+  <article>
+    <a class="thumb ${p.img ? "" : p.art}" href="${p.href}" aria-label="${p.name}: ${p.title}">
+      ${p.img ? `<img src="${p.img}" alt="${p.name} project preview" loading="lazy">` :
+      `<div class="mock" aria-hidden="true"><div class="title">${p.mock}</div><div class="sub">${p.name}</div><div class="bar"></div><div class="row"></div><div class="row s"></div><div class="row"></div></div>`}
+    </a>
+    <div class="cap"><span>${p.title}</span><b>${p.name} • ${p.year}</b></div>
+  </article>`).join("");
+</script>
+</body>
+</html>
